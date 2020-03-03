@@ -18,7 +18,7 @@ Things you may want to cover:
 |------|----|-------|
 |email|string|null: false, unique:true|
 |password|string|null: false|
-|username|string|null: false|
+|username|string|null: false, add_index:true|
 ### Association
 - has_many :groups_users
 - has_many :messages
@@ -38,10 +38,11 @@ Things you may want to cover:
 ## groupsテーブル
 |Column|Type|Options|
 |------|----|-------|
-|text|string|null: false|
+|group_name|string|null: false, unique: ture|
 ### Association
 - has_many :message
 - has_many  :users,  through:  :users_groups
+- has_many :users_group
 
 ## users_groupsテーブル
 |Column|Type|Options|
