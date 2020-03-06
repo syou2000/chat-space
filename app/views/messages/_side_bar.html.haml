@@ -1,0 +1,25 @@
+.sidebar
+  .sidebar__username
+    .sidebar__username__topitems
+      %p.sidebar__username__topitems__name
+        しょう
+      %ul.sidebar__username__topitems__menu
+        %li.siderbar__username__topitems__edituser
+          = link_to "#" do
+            = icon('fas', 'edit')
+        %li.siderbar__username__topitems__newgroup
+          = link_to "#" do
+            = icon('fas', 'cog')
+
+  .sidebar__grouplist
+    .sidebar__grouplist__group
+      %p.group__group__name
+        moon
+      %p.group__latest__message
+        まだメッセージがありません
+
+    .sidebar__grouplist__group
+      %p.group__group__name
+        moon1
+      %p.group__latest__message
+        まだメッセージがありません
