@@ -13,7 +13,6 @@ Things you may want to cover:
 
 * Database creation
 
-## usersテーブル
 |Column|Type|Options|
 |------|----|-------|
 |email|string|null: false, unique:true|
