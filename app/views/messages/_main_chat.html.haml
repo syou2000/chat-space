@@ -2,35 +2,24 @@
   .mainchat__messageinfo
     .mainchat__messageinfo__leftbox
       .mainchat__messageinfo__leftbox__current__group
-        moon
+        = @group.name
       %ul.mainchat__messageinfo__leftbox__menberlist
-        menber:
+        Menber :
         %li.mainchat__messageinfo__leftbox__menberlist__menber
-          syou        
+          = current_user.name
     .mainchat__messageinfo__edit__btn
-      Edit
+      = link_to edit_group_path(params[:group_id]), class: 'editbtn' do
+        Edit
+        
   .mainchat__messagelist
-    .mainchat__messagelist__message
-      .mainchat__messagelist__message__upperinfo
-        %p.mainchat__messagelist__message__upperinfo__talker
-          syou
-        %p.mainchat__messagelist__message__upperinfo__date
-          20200304
-      .mainchat__messagelist__message__text
-        hello
-    .mainchat__messagelist__message
-      .mainchat__messagelist__message__upperinfo
-        %p.mainchat__messagelist__message__upperinfo__talker
-          syou        
-        %p.mainchat__messagelist__message__upperinfo__date
-          20200304
-      .mainchat__messagelist__message__text
-        hello
-  .mainchat__messageform
-    .mainchat__messageform__newmessage
-      %input.mainchat__messageform__newmessage__inputbox__content__text{:name => "message[content]", :type => "text", :placeholder => "type a message"}
-      %label{class: "inputbox__image"}
-        = icon('fas', 'image')
-        %input.inputbox__image__file{type: "file"}
-    .mainchat__messageform__submit__btn
-      SEND
+    = render @messages
+
+  = form_for [@group, @message] do |f|
+    .mainchat__messageform
+      .mainchat__messageform__newmessage
+        = f.text_field :content, placeholder: "type a message", class: 'mainchat__messageform__newmessage__inputbox__text'
+        .mainchat__messageform__newmessage__inputbox
+          = f.label :image, class: "inputbox__image" do
+            = icon('fas', 'image')
+            = f.file_field :image, class: 'inputbox__image__file'
+        = f.submit 'Send', class: 'mainchat__messageform__newmessage__submit__btn'
