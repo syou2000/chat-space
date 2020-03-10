@@ -14,14 +14,12 @@ $(function(){
        <div class="mainchat__messagelist__message__text">
          <p class="mainchat__messagelist__message__text__content">
            ${message.content}
-         </p>
-         <img>
+         </p>         
    </div>
+    <img src=${message.image} >
    </div>`
      return html;
-
-   } 
-   else {
+   } else {
      var html =
      `<div class="mainchat__messagelist__message">
      <div class="mainchat__messagelist__message__upperinfo">
