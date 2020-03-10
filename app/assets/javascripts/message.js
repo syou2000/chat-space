@@ -15,6 +15,7 @@ $(function(){
          <p class="mainchat__messagelist__message__text__content">
            ${message.content}
          </p>
+         <img>
    </div>
    </div>`
      return html;
@@ -60,7 +61,10 @@ $('#new_message').on('submit', function(e){
     $('.mainchat__messagelist').animate({ scrollTop: $('.mainchat__messagelist')[0].scrollHeight});
   })
   .fail(function() {
-    alert("メッセージ送信に失敗しました");
+    alert("メッセージ送信に失敗しました")
+    .always(function() {
+      $("input").prop('disabled', false);
+    });
 });
 })
 });
