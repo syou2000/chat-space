@@ -1,6 +1,5 @@
 $(function(){
   var buildHTML = function(message) {
-    console.log(message.image.url);
     if (message.content && message.image.url) {
       var html = `
       <div class="mainchat__messagelist__message" data-message-id= ${message.id}>
