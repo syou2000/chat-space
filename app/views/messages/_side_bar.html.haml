@@ -4,12 +4,12 @@
       %p.sidebar__username__topitems__name
         = current_user.name
       %ul.sidebar__username__topitems__menu
-        %li.siderbar__username__topitems__edituser
-          = link_to edit_user_path(current_user.id) do
-            = icon('fas', 'edit')
         %li.siderbar__username__topitems__newgroup
           =link_to new_group_path do
-            = icon('fas', 'cog', class: 'icon',)
+            = icon('fas', 'edit')
+        %li.siderbar__username__topitems__edituser
+          = link_to edit_user_path(current_user.id) do
+            = icon('fas', 'cog', class: 'icon')
 
   .sidebar__grouplist
     - current_user.groups.each do |group|
